@@ -1,8 +1,5 @@
-module.exports = api => {
+module.exports = (api) => {
   // Testing if babel is being run in test mode
-  const isProd = api.env('prod')
-  const isDev = api.env('dev')
-  const isTest = api.env('test')
 
   /**
    * Cache the returned value forever and don't call this function again. This is the default behavior but since we
@@ -18,19 +15,19 @@ module.exports = api => {
         'module-resolver',
         {
           alias: {
-            '^#(.+)': './src/\\1'
+            '^#(.+)': './src/\\1',
           },
-          extensions: ['.ts', '.js', '.json']
-        }
+          extensions: ['.ts', '.js', '.json'],
+        },
       ],
       [
         '@babel/proposal-decorators',
         {
-          legacy: true
-        }
+          legacy: true,
+        },
       ],
       ['@babel/proposal-class-properties', { loose: true }],
-      ['inline-json-import', {}]
-    ]
+      ['inline-json-import', {}],
+    ],
   }
 }

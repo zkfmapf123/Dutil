@@ -1,5 +1,5 @@
 {
-  "name": "ts-dktil",
+  "name": "ts-dkutil",
   "description": "donggyu utils use typescript",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

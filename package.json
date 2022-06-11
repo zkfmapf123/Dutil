@@ -11,10 +11,9 @@
   "scripts": {
     "lint": "eslint 'src/**/*.ts'",
     "clean": "rimraf -rf lib && mkdirp lib",
-    "build": "npm run build-dev",
-    "build-prod": "npm run clean && tsc && cross-env NODE_ENV=prod babel ./src --ignore */test --out-dir lib --extensions \".ts,.tsx\"",
-    "build-dev": "npm run clean && tsc && cross-env NODE_ENV=dev babel ./src --ignore */test --out-dir lib --extensions \".ts,.tsx\" ",
+    "build": "npm run clean && tsc && babel ./src --ignore */test --out-dir lib --extensions \".ts,.tsx\"",
     "build-watch": "npm run clean && babel -w ./src --out-dir lib --extensions \".ts,.tsx\"",
+    "build-test": "npm run build && npm run test",
     "test": "jest --verbose --testTimeout=10000",
     "release": "npm run build && NODE_ENV=\"test\" npx np --any-branch",
     "pre-release": "npm run test && npm run build && npm publish"

@@ -1,7 +1,10 @@
 ## dk-util
 
 ### Description 
-- 개인 프로젝트 시 직접만든 라이브러리를 사용합니다
+- Design Pattern
+- Utils
+- Type
+- ...
 
 ## PR Convention (Rebase 원칙을 준수합니다)
 - branch는 rebase로 관리합니다

@@ -1,14 +1,45 @@
-## dk-util
+# dk-util
 
-### Description 
+## Installation
+
+```
+    $ npm i dk-util
+    $ npm i --save dk-util
+```
+
+## Index
 - Design Pattern
-- Utils
-- Type
-- ...
+    - [1. Observe](#observe)
+    - [2. Factory](#factory)
 
-## PR Convention (Rebase 원칙을 준수합니다)
-- branch는 rebase로 관리합니다
-- cherry-pick으로 master에 머지합니다
+# Observe
 
-## npm Link
-- https://www.npmjs.com/package/ts-dkutil
+```
+/**
+ * @info use Proxy Pattern
+ * @param cb ProxyHandler (Interface)
+ */
+
+export function observe<T extends object>(object: T, cb: ProxyHandler<T>) {
+  const proxy = new Proxy(object, cb)
+  return proxy
+}
+
+```
+
+# Factory
+
+```
+/**
+ * @info factory pattern
+ * @param K names
+ * @param T interface
+ */
+
+export abstract class Factory<T, K> {
+  inject(className: T): K {
+    throw new Error('must be override')
+  }
+}
+  
+```

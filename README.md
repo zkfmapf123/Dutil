@@ -3,8 +3,8 @@
 ## Installation
 
 ```
-    $ npm i dk-util
-    $ npm i --save dk-util
+    $ npm i ts-dkutil
+    $ npm i --save ts-dkutil
 ```
 
 ## Index

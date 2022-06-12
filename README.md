@@ -17,7 +17,7 @@
 
 # Observe
 
-```
+```typescript
 /**
  * @info use Proxy Pattern
  * @param cb ProxyHandler (Interface)
@@ -32,7 +32,7 @@ export function observe<T extends object>(object: T, cb: ProxyHandler<T>) {
 
 # Factory
 
-```
+```typescript
 /**
  * @info factory pattern
  * @param K names
@@ -49,7 +49,7 @@ export abstract class Factory<T, K> {
 
 # catchWrap
 
-```
+```typescript
   export function catchWrap<T>(result: T, errTitle?: string): T | Error {
   try {
     return result
@@ -70,7 +70,7 @@ export async function awaitCatchWrap<T>(result: T, errTitle?: string): Promise<T
 
 - example
 
-```
+```typescript
 const arrSum = (arr: number[], v: number): number => {
       let sum = 0
 

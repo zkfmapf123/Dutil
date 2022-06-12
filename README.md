@@ -9,8 +9,11 @@
 
 ## Index
 - Design Pattern
-    - [1. Observe](#observe)
-    - [2. Factory](#factory)
+  - [1. Observe](#observe)
+  - [2. Factory](#factory)
+
+- Utils
+  - [1. catchWrap](#catchWrap)
 
 # Observe
 
@@ -42,4 +45,53 @@ export abstract class Factory<T, K> {
   }
 }
   
+```
+
+# catchWrap
+
+```
+  export function catchWrap<T>(result: T, errTitle?: string): T | Error {
+  try {
+    return result
+  } catch (e) {
+    throw new Error(errTitle || e.message)
+  }
+}
+
+export async function awaitCatchWrap<T>(result: T, errTitle?: string): Promise<T | Error> {
+  try {
+    return await result
+  } catch (e) {
+    throw new Error(errTitle || e.message)
+  }
+}
+
+```
+
+- example
+
+```
+const arrSum = (arr: number[], v: number): number => {
+      let sum = 0
+
+      arr.forEach((item) => {
+        sum += item
+      })
+
+      if (v === 0) {
+        throw Error()
+      }
+
+      return sum * v
+    }
+
+    const arr = [1, 2, 3, 4, 5]
+    const multipleNumber = 99
+
+  try{
+    const sum = catchWrap<number>(arrSum(arr, multipleNumber), 'invalid number')
+  }catch(e){
+    // ...
+  }
+
 ```
